@@ -9,4 +9,18 @@ show concept designs
 
 make ad concepts
 
-sutaisyt kainos sriti
+✓ PRICING SECTION COMPLETE:
+Starter — from 500 €
+Business — from 900 €
+Custom — from 1500 €
+
+Implemented:
+- Lithuanian names: Pradinė svetainė, Verslo svetainė, Individualus sprendimas
+- Feature descriptions for each tier
+- Project complexity disclaimers
+- Button alignment fixed with flexbox
+- CSS styling updated
+- Both HTML versions synchronized
+- Git commit: 8a6c0fd
+
+pataisyti populi
