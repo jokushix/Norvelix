@@ -468,7 +468,11 @@ h2 {
 
 /* ── PRICING ── */
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 22px; }
-.price-card { position: relative; }
+.price-card { 
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+}
 .price-card.featured { border-color: rgba(127, 255, 106, 0.38); }
 .featured-badge {
   position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
@@ -482,10 +486,32 @@ h2 {
   letter-spacing: 0.01em;
   color: var(--text); margin-bottom: 12px;
 }
-.price-amount { font-family: 'Syne', sans-serif; font-size: 2.6rem; font-weight: 800; line-height: 1; }
-.price-amount sup { font-size: 1.1rem; vertical-align: super; color: var(--green); }
-.price-note { font-size: 0.8rem; color: var(--muted); margin-top: 8px; margin-bottom: 22px; line-height: 1.5; }
-.price-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.price-amount { 
+  font-family: 'Syne', sans-serif; 
+  font-size: 2.6rem; 
+  font-weight: 800; 
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.price-plus {
+  font-size: 1.4rem;
+  color: var(--green);
+}
+.price-note { 
+  font-size: 0.8rem; 
+  color: var(--muted); 
+  margin-top: 0; 
+  margin-bottom: 22px; 
+  line-height: 1.5; 
+}
+.price-features { 
+  list-style: none; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
 .price-features li {
   font-size: 0.86rem;
   color: var(--muted);
@@ -503,13 +529,28 @@ h2 {
   background: var(--green);
   flex-shrink: 0;
 }
+.price-disclaimer {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+  font-style: italic;
+  line-height: 1.5;
+}
 .price-btn {
-  display: block; width: 100%; text-align: center;
-  padding: 12px; border-radius: 6px;
-  font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 0.83rem; letter-spacing: 0.04em;
-  text-decoration: none; transition: all 0.2s;
-  cursor: pointer; border: none;
+  display: block; 
+  width: 100%; 
+  text-align: center;
+  padding: 12px; 
+  border-radius: 6px;
+  font-family: 'Syne', sans-serif; 
+  font-weight: 700;
+  font-size: 0.83rem; 
+  letter-spacing: 0.04em;
+  text-decoration: none; 
+  transition: all 0.2s;
+  cursor: pointer; 
+  border: none;
+  margin-top: auto;
 }
 .price-btn.outline { background: transparent; border: 1px solid var(--glass-border); color: var(--text); }
 .price-btn.outline:hover { border-color: var(--green); color: var(--green); }
