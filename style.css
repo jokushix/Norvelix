@@ -472,6 +472,7 @@ h2 {
   position: relative; 
   display: flex;
   flex-direction: column;
+  overflow: visible;
 }
 .price-card.featured { border-color: rgba(127, 255, 106, 0.38); }
 .featured-badge {
