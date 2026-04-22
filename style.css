@@ -359,6 +359,8 @@ h2 {
    contact-location.svg
    contact-time.svg
    contact-call.svg
+   contact-social.svg
+   contact-hours.svg
 */
 .icon-why-personal { background-image: url("icons/why-personal.svg"); }
 .icon-why-fast { background-image: url("icons/why-fast.svg"); }
@@ -377,6 +379,7 @@ h2 {
 .icon-contact-time { background-image: url("icons/contact-time.svg"); }
 .icon-contact-call { background-image: url("icons/contact-call.svg"); }
 .icon-contact-social { background-image: url("icons/contact-social.svg"); }
+.icon-contact-hours { background-image: url("icons/contact-hours.svg"); }
 
 /* ── SERVICES ── */
 .service-badge {
@@ -660,6 +663,16 @@ footer a:hover { color: var(--green); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
 .footer-links { display: flex; gap: 22px; }
 .footer-brand span { color: var(--green); }
+.footer-flag-lt { font-weight: 700; }
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .footer-flag-lt {
+    background: linear-gradient(90deg, #fdb913 0 33%, #006a44 33% 66%, #c1272d 66% 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
 
 /* ── ANIMATION ── */
 .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }

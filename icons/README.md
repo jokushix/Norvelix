@@ -20,6 +20,7 @@ Place your icon files in this folder using these exact filenames:
 - `contact-time.svg` - response time / clock
 - `contact-call.svg` - intro call / phone
 - `contact-social.svg` - social links
+- `contact-hours.svg` - working hours / schedule
 
 Notes:
 - Prefer SVG for sharp rendering.
