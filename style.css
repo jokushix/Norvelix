@@ -991,11 +991,14 @@ footer a:hover { color: var(--green); }
      beam: top=108  left=148−125=23  w=250
      ───────────────────────────────────────────── */
   .hero-lamp-scene {
-  inset: 10% 0 auto auto;
+  position: absolute;
+  top: 90px;
+  right: 0;
+  left: auto;
+  bottom: auto;
   width: 160px;
   height: 210px;
 }
-
   .hero-lamp::before {
     left: 20px;
     top: 16px;
