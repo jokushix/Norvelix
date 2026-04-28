@@ -49,12 +49,29 @@ function initMicrosoftClarity() {
 const nav = document.getElementById('nav');
 const menuToggle = document.getElementById('menu-toggle');
 const navPanel = document.getElementById('nav-panel');
+const heroSequence = document.querySelector('.hero-sequence');
 
 function syncNavOnScroll() {
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
 }
 
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function syncHeroSequence() {
+  if (!heroSequence) return;
+  const rect = heroSequence.getBoundingClientRect();
+  const total = Math.max(rect.height - window.innerHeight, 1);
+  const progress = clamp((-rect.top) / total, 0, 1);
+  heroSequence.classList.toggle('is-beat-2', progress >= 0.18);
+  heroSequence.classList.toggle('is-beat-3', progress >= 0.42);
+  heroSequence.classList.toggle('is-beat-4', progress >= 0.68);
+  heroSequence.classList.toggle('is-beat-5', progress >= 0.8);
+}
+
 window.addEventListener('scroll', syncNavOnScroll, { passive: true });
+window.addEventListener('scroll', syncHeroSequence, { passive: true });
 
 function setMenuState(isOpen) {
   if (!menuToggle || !navPanel) return;
@@ -68,6 +85,7 @@ function setMenuState(isOpen) {
 function initMenu() {
   if (!menuToggle || !navPanel) return;
   syncNavOnScroll();
+  syncHeroSequence();
   menuToggle.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
     setMenuState(!isOpen);
@@ -84,6 +102,7 @@ function initMenu() {
     if (event.key === 'Escape') setMenuState(false);
   });
   window.addEventListener('resize', () => {
+    syncHeroSequence();
     if (window.innerWidth > 768) setMenuState(false);
   });
 }
@@ -278,3 +297,4 @@ initStepper();
 initTallyEmbed();
 initGoogleAnalytics();
 initMicrosoftClarity();
+window.addEventListener('load', syncHeroSequence, { once: true });

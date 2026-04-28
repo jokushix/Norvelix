@@ -300,15 +300,6 @@ h1 {
 .hero-sequence.is-beat-5 .hero-highlight-target::before {
   opacity: 1;
 }
-/* ─────────────────────────────────────────────
-   STREET LAMP  –  desktop baseline
-   Anchor: pole centre-x = 31px from scene left
-   ─────────────────────────────────────────────
-   pole   : left=26  w=10  → centre=31
-   arm    : left=31  w=132 → right-end=163  top=26
-   head   : left=163 w=58  → centre=192   top=36  h=74  bottom=110
-   light  : top=110  left= 192-(360/2)= 12
-   ───────────────────────────────────────────── */
 .hero-lamp-scene {
   position: absolute;
   inset: 2% auto auto 58%;
@@ -317,12 +308,10 @@ h1 {
   z-index: 1;
   transition: opacity 0.45s ease, transform 0.6s ease;
   pointer-events: none;
-  overflow: visible;
 }
 .hero-lamp {
   position: absolute;
   inset: 0;
-  overflow: visible;
 }
 .hero-lamp::before,
 .hero-lamp::after,
@@ -332,8 +321,6 @@ h1 {
   position: absolute;
   display: block;
 }
-
-/* 1 · POLE  centre-x=31 */
 .hero-lamp::before {
   content: '';
   left: 26px;
@@ -344,35 +331,20 @@ h1 {
   background: linear-gradient(180deg, rgba(238, 243, 242, 0.38), rgba(176, 188, 190, 0.18) 58%, rgba(122, 134, 138, 0.1));
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-
-/* 2 · HORIZONTAL ARM  pole-centre → head left-edge
-        left=31  top=26 (centre of pole top area)  w=132 */
 .hero-lamp::after {
   content: '';
-  left: 31px;
-  top: 26px;
+  left: 30px;
+  top: 30px;
   width: 132px;
   height: 8px;
   border-radius: 999px;
   background: linear-gradient(90deg, rgba(214, 220, 221, 0.28), rgba(232, 236, 235, 0.62) 55%, rgba(176, 188, 190, 0.14));
+  transform-origin: left center;
+  transform: rotate(8deg);
 }
-
-/* 3 · CURVED ELBOW  sits at junction of arm & head */
-.hero-lamp-arm {
-  top: 28px;
-  left: 131px;
-  width: 40px;
-  height: 28px;
-  border-top: 4px solid rgba(230, 236, 236, 0.34);
-  border-right: 4px solid rgba(230, 236, 236, 0.34);
-  border-radius: 0 18px 0 0;
-  background: transparent;
-}
-
-/* 4 · LANTERN HEAD  left=163  top=36  w=58  h=74  → bottom=110  centre-x=192 */
 .hero-lamp-head {
-  top: 36px;
-  left: 163px;
+  top: 46px;
+  left: 136px;
   width: 58px;
   height: 74px;
   background: linear-gradient(180deg, rgba(240, 243, 242, 0.16), rgba(176, 188, 190, 0.08));
@@ -405,19 +377,27 @@ h1 {
   filter: blur(1px);
   transform: translateX(-50%);
 }
-
-/* 5 · LIGHT BEAM  top = head-bottom=110  left = head-centre − beam-w/2 = 192−180=12
-        transform-origin at top-centre of beam box = 50% 0 */
+.hero-lamp-arm {
+  top: 36px;
+  left: 124px;
+  width: 28px;
+  height: 28px;
+  border-top: 4px solid rgba(230, 236, 236, 0.34);
+  border-right: 4px solid rgba(230, 236, 236, 0.34);
+  border-radius: 0 18px 0 0;
+  transform: rotate(8deg);
+}
 .hero-lamp-light {
-  top: 110px;
-  left: 12px;
+  top: 100px;
+  left: 74px;
   width: 360px;
   height: 300px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(255, 236, 184, 0.54), rgba(255, 221, 140, 0.28) 24%, rgba(255, 214, 122, 0.1) 54%, transparent 82%);
-  clip-path: polygon(44% 0%, 56% 0%, 100% 100%, 0% 100%);
+  background:
+    radial-gradient(ellipse at 30% 12%, rgba(255, 236, 184, 0.54), rgba(255, 221, 140, 0.28) 24%, rgba(255, 214, 122, 0.1) 54%, transparent 82%);
+  clip-path: polygon(6% 0, 18% 0, 90% 100%, 0 100%);
   filter: blur(14px);
   opacity: 0;
-  transform-origin: 50% 0%;
+  transform-origin: 8% 0;
   transform: scaleY(0.92) scaleX(0.96);
 }
 .hero-sequence.is-beat-4 .hero-lamp-light {
@@ -430,8 +410,12 @@ h1 {
   animation: none;
 }
 @keyframes lampFlicker {
-  0%, 18%, 42%, 64% { opacity: 0.12; }
-  10%, 28%, 54%, 100% { opacity: 0.78; }
+  0%, 18%, 42%, 64% {
+    opacity: 0.12;
+  }
+  10%, 28%, 54%, 100% {
+    opacity: 0.78;
+  }
 }
 
 .hero-stats {
@@ -602,7 +586,7 @@ h2 {
   gap: 12px;
   margin-bottom: 16px;
 }
-.service-title { font-family: 'Syne', sans-serif; font-size: 2.00rem; font-weight: 700; margin-bottom: 0; }
+.service-title { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 0; }
 .service-desc { color: var(--muted-strong); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
 .service-items { list-style: none; display: flex; flex-direction: column; gap: 7px; }
 .service-items li { font-size: 0.84rem; color: var(--muted); padding-left: 16px; position: relative; }
@@ -985,44 +969,36 @@ footer a:hover { color: var(--green); }
     font-size: 0.96rem;
     line-height: 1.68;
   }
-  /* ─────────────────────────────────────────────
-     LAMP  tablet  ≤768px
-     pole centre-x=24  arm-w=100  head left=124 w=48 h=62 bottom=108  centre=148
-     beam: top=108  left=148−125=23  w=250
-     ───────────────────────────────────────────── */
   .hero-lamp-scene {
     inset: 6% auto auto 58%;
     width: min(28vw, 240px);
     height: 320px;
-    overflow: visible;
   }
   .hero-lamp::before {
     left: 20px;
-    top: 16px;
     width: 8px;
     height: 250px;
   }
   .hero-lamp::after {
     left: 24px;
-    top: 22px;
+    top: 34px;
     width: 100px;
-    height: 6px;
-  }
-  .hero-lamp-arm {
-    top: 22px;
-    left: 103px;
-    width: 30px;
-    height: 22px;
   }
   .hero-lamp-head {
-    top: 30px;
-    left: 124px;
+    top: 46px;
+    left: 108px;
     width: 48px;
     height: 62px;
   }
+  .hero-lamp-arm {
+    top: 38px;
+    left: 95px;
+    width: 24px;
+    height: 24px;
+  }
   .hero-lamp-light {
-    top: 92px;
-    left: 23px;
+    top: 96px;
+    left: 46px;
     width: 250px;
     height: 240px;
   }
@@ -1102,23 +1078,10 @@ footer a:hover { color: var(--green); }
   .section-sub {
     font-size: 0.86rem;
   }
-  /* ─────────────────────────────────────────────
-     LAMP  mobile  ≤480px
-     scene: right-anchored, moved left with right:12px
-     pole  : left=16 w=7  centre=19
-     arm   : left=19 top=20 w=72
-     elbow : left=83 top=16
-     head  : left=91 top=24 w=34 h=48  bottom=72  centre=108
-     beam  : top=72  left=108−85=23   w=170
-     ───────────────────────────────────────────── */
   .hero-lamp-scene {
-    position: absolute;
-    inset: auto;
-    right: 12px;
-    bottom: 16%;
+    inset: auto 0 16% auto;
     width: 160px;
     height: 210px;
-    overflow: visible;
   }
   .hero-lamp::before {
     left: 16px;
@@ -1128,25 +1091,25 @@ footer a:hover { color: var(--green); }
   }
   .hero-lamp::after {
     left: 19px;
-    top: 24px;
+    top: 36px;
     width: 72px;
-    height: 5px;
-  }
-  .hero-lamp-arm {
-    top: 18px;
-    left: 83px;
-    width: 16px;
-    height: 16px;
+    height: 6px;
   }
   .hero-lamp-head {
-    left: 91px;
-    top: 24px;
+    left: 84px;
+    top: 40px;
     width: 34px;
     height: 48px;
   }
+  .hero-lamp-arm {
+    top: 34px;
+    left: 74px;
+    width: 18px;
+    height: 18px;
+  }
   .hero-lamp-light {
-    top: 72px;
-    left: 23px;
+    top: 82px;
+    left: 16px;
     width: 170px;
     height: 150px;
     filter: blur(9px);
