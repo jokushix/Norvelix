@@ -1111,7 +1111,7 @@ footer a:hover { color: var(--green); }
      head  : left=91 top=24 w=34 h=48  bottom=72  centre=108
      beam  : top=72  left=108−85=23   w=170
      ───────────────────────────────────────────── */
-  .hero-lamp-scene {
+ .hero-lamp-scene {
   position: absolute;
   top: 20px;
   right: 0;
