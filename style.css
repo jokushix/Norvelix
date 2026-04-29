@@ -991,14 +991,11 @@ footer a:hover { color: var(--green); }
      beam: top=108  left=148−125=23  w=250
      ───────────────────────────────────────────── */
   .hero-lamp-scene {
-  position: absolute;
-  top: 90px;
-  right: 0;
-  left: auto;
-  bottom: auto;
-  width: 160px;
-  height: 210px;
-}
+    inset: 6% auto auto 58%;
+    width: min(28vw, 240px);
+    height: 320px;
+    overflow: visible;
+  }
   .hero-lamp::before {
     left: 20px;
     top: 16px;
@@ -1115,14 +1112,14 @@ footer a:hover { color: var(--green); }
      beam  : top=72  left=108−85=23   w=170
      ───────────────────────────────────────────── */
   .hero-lamp-scene {
-    position: absolute;
-    top: 20px;
-    right: 0;
-    bottom: auto;
-    left: auto;
-    width: 160px;
-    height: 210px;
-  }
+  position: absolute;
+  top: 20px;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  width: 160px;
+  height: 210px;
+}
   .hero-lamp::before {
     left: 16px;
     top: 20px;
@@ -1149,8 +1146,8 @@ footer a:hover { color: var(--green); }
   }
   .hero-lamp-light {
     top: 72px;
-    left: -30px;
-    width: 130px;
+    left: 23px;
+    width: 170px;
     height: 150px;
     filter: blur(9px);
   }
