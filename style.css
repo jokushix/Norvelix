@@ -232,7 +232,8 @@ button:focus-visible {
   z-index: 2;
 }
 .beat-two,
-.beat-three {
+.beat-three,
+.beat-five {
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
@@ -244,6 +245,11 @@ button:focus-visible {
 .hero-sequence.is-beat-4 .beat-three,
 .hero-sequence.is-beat-5 .beat-two,
 .hero-sequence.is-beat-5 .beat-three {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.hero-sequence.is-beat-5 .beat-five {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -269,9 +275,12 @@ h1 {
 }
 .hero-sub strong { color: var(--text); font-weight: 400; }
 
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero-btns {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .hero-highlight-target {
   position: relative;
