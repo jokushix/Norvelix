@@ -12,6 +12,44 @@
   --muted-strong: #d6ddd7;
 }
 
+/* === Syne legibility helpers ===
+   Applied to elements using the Syne display face to improve readability:
+   - line-height set to 1.17 for multi-line headings
+   - positive letter-spacing 0.0075em
+   - utilities for light-on-dark and text-on-image use
+*/
+.syne-plain,
+h1, h2, h3, .service-title, .card-title, .price-amount, .pf-food-title, .pf-beauty-title {
+  font-family: 'Syne', sans-serif;
+  line-height: 1.17;
+  letter-spacing: 0.0075em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prefer off-white for Syne text on dark backgrounds */
+.syne-light-on-dark { color: #f0f0f0; }
+.syne-light-on-dark--soft { color: #e8e8e8; }
+
+/* Text-over-image helpers */
+.syne-on-image { text-shadow: 0 2px 8px rgba(0,0,0,0.4); color: #f0f0f0; }
+.syne-scrim { position: relative; z-index: 1; }
+.syne-scrim::before { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.56)); z-index: -1; }
+
+/* Apply subtle shadow/off-white to headings that sit over photos or busy backgrounds */
+.hero-lead h1,
+.hero-lead h2 {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.48);
+  color: #f0f0f0;
+}
+
+/* Food hero overlays use darker photos — add shadow for legibility */
+.pf-food-title,
+.pf-food-brand {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  color: #f0f0f0;
+}
+
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -119,7 +157,7 @@ nav.scrolled {
 .logo {
   font-family: 'Syne', sans-serif;
   font-weight: 800; font-size: 1.36rem;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.0075em;
   color: var(--text); text-decoration: none;
 }
 .logo-accent { color: var(--green); }
@@ -260,8 +298,9 @@ h1 {
   font-weight: 800;
   max-width: 13ch;
   font-size: clamp(2.9rem, 5vw, 4.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
+  line-height: 1.17;
+  /* subtle positive tracking to improve legibility on heavy display weights */
+  letter-spacing: 0.0075em;
   margin-bottom: 18px;
 }
 .hl { color: var(--green); }
@@ -497,8 +536,10 @@ section { padding: 96px 0; }
 h2 {
   font-family: 'Syne', sans-serif;
   font-size: clamp(1.7rem, 3.6vw, 2.55rem);
-  font-weight: 800; letter-spacing: -0.02em;
-  line-height: 1.12; margin-bottom: 14px;
+  font-weight: 800;
+  /* subtle positive tracking to improve legibility on heavy display weights */
+  letter-spacing: 0.0075em;
+  line-height: 1.17; margin-bottom: 14px;
 }
 .section-sub {
   color: var(--muted); font-size: 0.98rem;
@@ -582,6 +623,7 @@ h2 {
 .icon-why-partner { background-image: url("icons/why-partner.svg"); }
 .icon-service-web { background-image: url("icons/service-web.svg"); }
 .icon-service-support { background-image: url("icons/service-support.svg"); }
+.icon-service-content { background-image: url("icons/service-content.svg"); }
 .icon-ind-restaurant { background-image: url("icons/industry-restaurant.svg"); }
 .icon-ind-beauty { background-image: url("icons/industry-beauty.svg"); }
 .icon-ind-retail { background-image: url("icons/industry-retail.svg"); }
@@ -975,13 +1017,13 @@ footer a:hover { color: var(--green); }
   h1 {
     max-width: 12ch;
     font-size: 2.18rem;
-    line-height: 1.04;
-    letter-spacing: -0.025em;
+    line-height: 1.17;
+    letter-spacing: 0.0075em;
     margin-bottom: 16px;
   }
   h2 {
     font-size: 1.72rem;
-    line-height: 1.12;
+    line-height: 1.17;
     margin-bottom: 10px;
   }
   .section-tag {
@@ -1101,11 +1143,11 @@ footer a:hover { color: var(--green); }
   h1 {
     max-width: none;
     font-size: 1.92rem;
-    line-height: 1.06;
+    line-height: 1.17;
   }
   h2 {
     font-size: 1.38rem;
-    line-height: 1.14;
+    line-height: 1.17;
   }
   .hero-sub,
   .section-sub {
@@ -1256,6 +1298,8 @@ footer a:hover { color: var(--green); }
 .pf-eyebrow.amber { color: #ffbe76; }
 .pf-eyebrow.blue  { color: #69d7ff; }
 .pf-h1 { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800; line-height: 1.1; color: var(--text); }
+/* Improve line-height for pf-h1 to match Syne legibility guidelines */
+.pf-h1 { line-height: 1.17; }
 .pf-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 .pf-btn { display: inline-flex; align-items: center; padding: 7px 13px; border-radius: 5px; font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700; }
 .pf-btn.solid { background: var(--green); color: #080c10; }
@@ -1588,7 +1632,7 @@ footer a:hover { color: var(--green); }
   font-family: "Syne", sans-serif;
   color: #f8ead0;
   font-size: 1.65rem;
-  line-height: 1.05;
+  line-height: 1.17;
   margin-bottom: 12px;
 }
 .pf-food-title em { font-style: italic; }
@@ -1765,7 +1809,7 @@ footer a:hover { color: var(--green); }
 .pf-re-copy .title {
   font-family: "Syne", sans-serif;
   font-size: 1.8rem;
-  line-height: 1.05;
+  line-height: 1.17;
   margin-bottom: 10px;
 }
 .pf-re-copy .title em {
