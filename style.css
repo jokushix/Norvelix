@@ -900,7 +900,8 @@ a.contact-val:hover {
 
 .tally-frame {
   width: 100%;
-  min-height: 540px;
+  /* reduced height per request (approx. 3x smaller) */
+  min-height: 180px;
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.02);
